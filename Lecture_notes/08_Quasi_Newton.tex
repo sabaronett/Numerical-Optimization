@@ -161,7 +161,7 @@ These methods typically set $(\boldsymbol{H}^k)^{-1}$ (let's call it $\boldsymbo
 \begin{frame}{A new quadratic model}
 Instead of computing the exact $\boldsymbol{Q}$, we can update it in a simple manner to account for the curvature measured during the most recent step. Suppose, we have generated $\boldsymbol{x}^{k+1}$ and wish to construct a new quadratic model,
 \begin{equation*}
-    m^{k+1} (\boldsymbol{p}) = f(x^{k+1}) + \boldsymbol{g}^{k+1} p + \frac{1}{2} \boldsymbol{p}^T \boldsymbol{Q}^{k+1} \boldsymbol{p}
+    m^{k+1} (\boldsymbol{p}) = f(x^{k+1}) + \boldsymbol{g}^{k+1} \boldsymbol{p} + \frac{1}{2} \boldsymbol{p}^T \boldsymbol{Q}^{k+1} \boldsymbol{p}
 \end{equation*}
 
 We let the gradient of $m^{k+1}$ match the gradient of $f$ for at least two steps $\boldsymbol{x}^{k+1}$ and $\boldsymbol{x}^{k}$. 
@@ -240,7 +240,7 @@ where
 
 \section{BFGS method}
 \begin{frame}{The Broyden-Fletcher-Goldfarb-Shanno (BFGS) method}
-In the BFGS algorithm, it does not approximate $\boldsymbol{Q}^k$, but handles $\boldsymbol{H}^k = (\boldsymbol{Q}^k)^{-1}$
+The BFGS algorithm does not approximate $\boldsymbol{Q}^k$, but handles $\boldsymbol{H}^k = (\boldsymbol{Q}^k)^{-1}$
 
 \begin{equation*}
     \boldsymbol{H}^{k+1}\boldsymbol{\gamma}^{k} = \boldsymbol{\delta}^{k}    
@@ -260,7 +260,10 @@ The minimize condition is,
     \frac{\boldsymbol{\delta}^k (\boldsymbol{\delta}^k)^T}{(\boldsymbol{\delta}^k)^T \boldsymbol{\gamma}^k}
 \end{equation*}
 
-BFGS does better than DFP with approximate line search. 
+BFGS does better than DFP with approximate line search. \\
+\pause
+\textcolor{red}{Give an example where the BFGS update does not exist.\\ 
+What would you do in this case?}
 \end{frame}
 
 \section{The Broyden Class}
